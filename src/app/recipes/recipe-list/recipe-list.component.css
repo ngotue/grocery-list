@@ -1,0 +1,15 @@
+.add-recipe {
+    /* height: calc(100vh - 4rem);
+    display: flex; */
+    display: grid;
+    gap: 0.5rem;
+    padding: 1rem 0;
+}
+/*.btn-add-recipe {
+    margin: auto;
+    display: block;
+    & button {
+        font-weight: 700;
+        font-size: x-large;
+    }
+} */

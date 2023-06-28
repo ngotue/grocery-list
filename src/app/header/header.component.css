@@ -1,0 +1,15 @@
+.nav-tabs {
+  justify-content: center;
+    height: 4rem;
+  .nav-link {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s;
+    &.active {
+      flex: 2;
+      font-size: x-large;
+    }
+  }
+}
