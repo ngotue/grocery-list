@@ -1,7 +1,7 @@
 <h3>{{recipe.name}}</h3>
 <div class="row">
     <div class="col-8">
-        <a href="" *ngFor="let ingredient of recipe.ingredients">
+        <a *ngFor="let ingredient of recipe.ingredients" class="ingredient">
             <div class="row">
                 <div class="col-10">{{ingredient.name}}</div>
                 <div class="col-2">{{ingredient.amount}}</div>
