@@ -5,3 +5,15 @@
 .recipe-ingredient:not(:first-of-type) {
     padding-top: 1rem;
 }
+
+.btn:not(:first-of-type) {
+    margin-left: 0.5rem;
+}
+
+.submit-row {
+    display: flex;
+
+    .btn {
+        flex: 1;
+    }
+}
