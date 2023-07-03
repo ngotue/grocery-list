@@ -1,3 +1,7 @@
 .recipe-form {
     padding: 1rem 0;
 }
+
+.recipe-ingredient:not(:first-of-type) {
+    padding-top: 1rem;
+}

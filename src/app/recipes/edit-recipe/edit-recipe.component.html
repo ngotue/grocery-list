@@ -22,6 +22,20 @@
       formControlName="imagePath"
     />
   </div>
+  <div class="form-group" formArrayName="ingredients">
+    <label for="">Ingredients <button class="btn btn-primary" (click)="addIngredient()">+</button></label>
+    <div class="row recipe-ingredient" *ngFor="let ingControl of ingredients; let i = index" [formGroupName]="i">
+      <div class="col-8">
+        <input type="text" class="form-control" formControlName="name" placeholder="Ingredient name">
+      </div>
+      <div class="col-3">
+        <input type="number" class="form-control" formControlName="amount">
+      </div>
+      <div class="col-1" *ngIf="i > 0">
+        <button class="btn btn-danger" (click)="removeIngredientInput(i)">X</button>
+      </div>
+    </div>
+  </div>
   <button type="submit" class="btn btn-primary">Submit</button>
   <button type="submit" class="btn btn-default" routerLink="../">Cancel</button>
 </form>
