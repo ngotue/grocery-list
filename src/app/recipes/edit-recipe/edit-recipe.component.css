@@ -17,3 +17,8 @@
         flex: 1;
     }
 }
+.remove-ingredient {
+    cursor: pointer;
+    text-decoration: underline;
+    color: red;
+}
