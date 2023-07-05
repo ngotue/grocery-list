@@ -2,7 +2,12 @@
   <h3>New recipe</h3>
   <div class="form-group">
     <label for="name">Name</label>
-    <input class="form-control" id="name" placeholder="Recipe name" formControlName="name"/>
+    <input
+      class="form-control"
+      id="name"
+      placeholder="Recipe name"
+      formControlName="name"
+    />
   </div>
   <div class="form-group">
     <label for="description">Description</label>
@@ -23,23 +28,44 @@
     />
   </div>
   <div class="form-group" formArrayName="ingredients">
-    <label for="">Ingredients <button class="btn btn-primary" (click)="addIngredient()">+</button></label>
-    <div class="row recipe-ingredient" *ngFor="let ingControl of ingredients; let i = index" [formGroupName]="i">
+    <label for=""
+      >Ingredients
+      <button class="btn btn-primary" (click)="addIngredient()">
+        +
+      </button></label
+    >
+    <div
+      class="row recipe-ingredient"
+      *ngFor="let ingControl of ingredients; let i = index"
+      [formGroupName]="i"
+    >
       <div class="col-8">
-        <input type="text" class="form-control" formControlName="name" placeholder="Ingredient name">
+        <input
+          type="text"
+          class="form-control"
+          formControlName="name"
+          placeholder="Ingredient name"
+        />
       </div>
       <div class="col-3">
-        <input type="number" class="form-control" formControlName="amount">
+        <input type="number" class="form-control" formControlName="amount" />
       </div>
       <div class="col-1" *ngIf="i > 0">
-        <a class="remove-ingredient" aria-label="Close" (click)="removeIngredientInput(i)">X</a>
+        <a
+          class="remove-ingredient"
+          aria-label="Close"
+          (click)="removeIngredientInput(i)"
+          >X</a
+        >
       </div>
     </div>
   </div>
   <div class="row">
     <div class="col-12 submit-row">
       <button class="btn btn-primary" (click)="saveAndStay()">Save</button>
-      <button class="btn btn-primary" (click)="saveAndLeave()">Save and leave</button>
+      <button class="btn btn-primary" (click)="saveAndLeave()">
+        Save and leave
+      </button>
       <button class="btn btn-default" routerLink="../">Cancel</button>
     </div>
   </div>

@@ -1,4 +1,4 @@
-<section class="add-recipe">
+<section class="recipe-list">
     <button class="btn btn-primary" routerLink="./new"> Add new </button>
     <app-recipe-item *ngFor="let item of recipes, index as id" [recipe]="item" [id]="id"></app-recipe-item>
 </section>

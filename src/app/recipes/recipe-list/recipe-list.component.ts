@@ -22,16 +22,17 @@ export class RecipeListComponent {
   ) {}
 
   ngOnInit() {
-    this.dataStorageService.fetchRecipes()
+    this.dataStorageService.fetchRecipes();
     this.route.data.subscribe((data: Data) => {
-      this.recipes = data['recipes']
-    })
+      this.recipes = data['recipes'];
+    });
     this.recSubscription = this.recipesService.recipesChange.subscribe(
       (recipes: Recipe[]) => {
         this.recipes = recipes;
       }
     );
   }
+
   onDestroy() {
     this.recSubscription.unsubscribe();
   }

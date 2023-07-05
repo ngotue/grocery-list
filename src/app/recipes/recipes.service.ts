@@ -21,4 +21,9 @@ export class RecipesService {
     this._recipes.push(rec)
     this.recipesChange.next(this._recipes.slice())
   }
+
+  remove(id: number) {
+    this._recipes.splice(id, 1)
+    this.recipesChange.next(this._recipes.slice())
+  }
 }

@@ -3,6 +3,7 @@ import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Recipe } from '../recipe.model';
 import { RecipesService } from '../recipes.service';
 import { Router } from '@angular/router';
+import { DataStorageService } from 'src/app/common/services/data-storage.service';
 
 @Component({
   selector: 'app-edit-recipe',
@@ -13,7 +14,7 @@ export class EditRecipeComponent {
   recipeForm: FormGroup;
   isEdit = false;
 
-  constructor(private recipesService: RecipesService, private router: Router) {}
+  constructor(private recipesService: RecipesService, private router: Router, private dataStorageService: DataStorageService) {}
 
   ngOnInit() {
     let recipeName = '';
@@ -63,6 +64,7 @@ export class EditRecipeComponent {
         recipe.ingredients
       )
     );
+    this.dataStorageService.storeRecipes()
   }
 
   saveAndStay() {
