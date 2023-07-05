@@ -3,12 +3,15 @@ import { Injectable } from '@angular/core';
 import { map, tap } from 'rxjs';
 import { Recipe } from 'src/app/recipes/recipe.model';
 import { RecipesService } from 'src/app/recipes/recipes.service';
+import { Ingredient } from '../ingredient.model';
+import { GroceriesService } from 'src/app/groceries/groceries.service';
 
 @Injectable({ providedIn: 'root' })
 export class DataStorageService {
   constructor(
     private http: HttpClient,
-    private recipesService: RecipesService
+    private recipesService: RecipesService,
+    private groceriesService: GroceriesService
   ) {}
 
   storeRecipes() {
@@ -32,8 +35,20 @@ export class DataStorageService {
             ingredients: recipe.ingredients ? recipe.ingredients : [],
           }))
         ),
-        tap(data => {
-            this.recipesService.setRecipes(data)
+        tap((data) => {
+          this.recipesService.setRecipes(data);
+        })
+      );
+  }
+
+  fetchGroceryList() {
+    this.http
+      .get<Ingredient[]>(
+        'https://grocery-list-d47e6-default-rtdb.europe-west1.firebasedatabase.app/groceries.json'
+      )
+      .pipe(
+        tap((data) => {
+          this.groceriesService.setGroceryList(data);
         })
       );
   }
