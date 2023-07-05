@@ -50,7 +50,7 @@
       <div class="col-3">
         <input type="number" class="form-control" formControlName="amount" />
       </div>
-      <div class="col-1" *ngIf="i > 0">
+      <div class="col-1" *ngIf="ingredients.length > 0">
         <a
           class="remove-ingredient"
           aria-label="Close"
@@ -62,8 +62,8 @@
   </div>
   <div class="row">
     <div class="col-12 submit-row">
-      <button class="btn btn-primary" (click)="saveAndStay()">Save</button>
-      <button class="btn btn-primary" (click)="saveAndLeave()">
+      <button class="btn btn-primary" (click)="save()">Save</button>
+      <button class="btn btn-primary" (click)="save(true)">
         Save and leave
       </button>
       <button class="btn btn-default" routerLink="../">Cancel</button>

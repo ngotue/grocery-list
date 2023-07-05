@@ -17,8 +17,9 @@ export class RecipesService {
     this.recipesChange.next(this._recipes.slice())
   }
 
-  addRecipe(rec: Recipe) {
-    this._recipes.push(rec)
+  addRecipe(id: number, rec: Recipe) {
+    if(this._recipes[id]) this._recipes[id] = rec
+    else this._recipes.push(rec)
     this.recipesChange.next(this._recipes.slice())
   }
 
