@@ -32,6 +32,11 @@ export class RecipeListComponent {
       }
     );
   }
+  
+  sendAllIngredients(){
+    this.recipesService.sendAll()
+    this.dataStorageService.storeGroceries()
+  }
 
   onDestroy() {
     this.recSubscription.unsubscribe();

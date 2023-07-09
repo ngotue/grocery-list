@@ -5,6 +5,11 @@
     gap: 0.5rem;
     padding: 1rem 0;
 }
+
+.list-action{
+    display: flex;
+    flex-direction: column;
+}
 /*.btn-add-recipe {
     margin: auto;
     display: block;

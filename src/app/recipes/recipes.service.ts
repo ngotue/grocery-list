@@ -2,11 +2,14 @@ import { Injectable } from '@angular/core';
 import { Recipe } from './recipe.model';
 import { INGREDIENT_TYPE, Ingredient } from '../common/ingredient.model';
 import { Subject } from 'rxjs';
+import { GroceriesService } from '../groceries/groceries.service';
 
 @Injectable({ providedIn: 'root' })
 export class RecipesService {
   recipesChange = new Subject<Recipe[]>();
   private _recipes: Recipe[]
+
+  constructor(private groceriesService: GroceriesService){}
 
   get recipes() {
     return this._recipes.slice();
@@ -21,6 +24,11 @@ export class RecipesService {
     if(this._recipes[id]) this._recipes[id] = rec
     else this._recipes.push(rec)
     this.recipesChange.next(this._recipes.slice())
+  }
+
+  sendAll(){
+    const ingredientList = this.recipes.flatMap(rec => rec.ingredients)
+    this.groceriesService.setGroceryList(ingredientList)
   }
 
   remove(id: number) {

@@ -41,6 +41,12 @@ export class DataStorageService {
       );
   }
 
+  storeGroceries() {
+    this.http.put('https://grocery-list-d47e6-default-rtdb.europe-west1.firebasedatabase.app/groceries.json',
+      this.groceriesService.groceryList
+    ).subscribe()
+  }
+
   fetchGroceryList() {
     this.http
       .get<Ingredient[]>(
