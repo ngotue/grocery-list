@@ -11,7 +11,7 @@ export class GroceriesService {
     constructor(private http: HttpClient){}
 
     setGroceryList(groceries: Ingredient[]) {
-        this._groceryList = groceries
+        this._groceryList = groceries.sort((groc1, groc2) => groc1.name.localeCompare(groc2.name))
         this.groceriesChange.next(this._groceryList.slice())
     }
 

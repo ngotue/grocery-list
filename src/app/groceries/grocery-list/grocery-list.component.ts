@@ -21,6 +21,10 @@ export class GroceryListComponent {
     })
   }
 
+  strike() {
+
+  }
+
   ngOnDestroy() {
     this.grocSub.unsubscribe()
   }
