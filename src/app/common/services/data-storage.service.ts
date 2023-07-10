@@ -48,7 +48,7 @@ export class DataStorageService {
   }
 
   fetchGroceryList() {
-    this.http
+    return this.http
       .get<Ingredient[]>(
         'https://grocery-list-d47e6-default-rtdb.europe-west1.firebasedatabase.app/groceries.json'
       )

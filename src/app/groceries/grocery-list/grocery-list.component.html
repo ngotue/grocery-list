@@ -1,1 +1,8 @@
-<p>grocery-list works!</p>
+<ul>
+    <li *ngFor="let ingredient of groceryList">
+        <div class="row">
+            <div class="col-6">{{ingredient.name}}</div>
+            <div class="col-6">{{ingredient.amount}}</div>
+        </div>
+    </li>
+</ul>
