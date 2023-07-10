@@ -28,7 +28,7 @@ export class RecipesService {
 
   sendAll(){
     const ingredientList = this.recipes.flatMap(rec => rec.ingredients)
-    this.groceriesService.setGroceryList(ingredientList)
+    this.groceriesService.receiveIngredients(ingredientList)
   }
 
   remove(id: number) {

@@ -11,3 +11,6 @@ export class Ingredient {
     // public type: INGREDIENT_TYPE
   ) {}
 }
+
+export type Item = Ingredient & {done: boolean}
+// export type Item = Ingredient & {name: string, amount: number, done: boolean}

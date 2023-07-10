@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { map, tap } from 'rxjs';
 import { Recipe } from 'src/app/recipes/recipe.model';
 import { RecipesService } from 'src/app/recipes/recipes.service';
-import { Ingredient } from '../ingredient.model';
+import { Item } from '../ingredient.model';
 import { GroceriesService } from 'src/app/groceries/groceries.service';
 
 @Injectable({ providedIn: 'root' })
@@ -49,7 +49,7 @@ export class DataStorageService {
 
   fetchGroceryList() {
     return this.http
-      .get<Ingredient[]>(
+      .get<Item[]>(
         'https://grocery-list-d47e6-default-rtdb.europe-west1.firebasedatabase.app/groceries.json'
       )
       .pipe(

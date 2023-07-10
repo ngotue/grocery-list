@@ -1,6 +1,6 @@
 <ul>
-    <li *ngFor="let ingredient of groceryList">
-        <div class="row" (click)="strike()">
+    <li *ngFor="let ingredient of groceryList; let i = index">
+        <div class="row" (click)="toggleStrike(i)" [ngClass]="{'strike' : ingredient.done}">
             <div class="col-6">{{ingredient.name}}</div>
             <div class="col-6">{{ingredient.amount}}</div>
         </div>

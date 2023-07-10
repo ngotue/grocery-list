@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { Ingredient } from 'src/app/common/ingredient.model';
+import { Item } from 'src/app/common/ingredient.model';
 import { GroceriesService } from '../groceries.service';
 import { Subscription } from 'rxjs';
+import { DataStorageService } from 'src/app/common/services/data-storage.service';
 
 @Component({
   selector: 'app-grocery-list',
@@ -9,10 +10,10 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./grocery-list.component.css']
 })
 export class GroceryListComponent {
-  groceryList: Ingredient[]
+  groceryList: Item[]
   grocSub = new Subscription()
 
-  constructor(private groceriesService: GroceriesService){}
+  constructor(private groceriesService: GroceriesService, private dataStorageService: DataStorageService){}
 
   ngOnInit() {
     this.groceryList = this.groceriesService.groceryList
@@ -21,8 +22,10 @@ export class GroceryListComponent {
     })
   }
 
-  strike() {
-
+  toggleStrike(id: number) {
+    this.groceryList[id].done = !this.groceryList[id].done
+    this.groceriesService.setGroceryList(this.groceryList)
+    this.dataStorageService.storeGroceries()
   }
 
   ngOnDestroy() {
